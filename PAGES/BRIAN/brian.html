@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brian — My Life Journey</title>
+  <style>
+    body{background:lightblue;font-family:Arial;margin:0;padding:20px}
+    h1{text-align:center}
+    .section{background:#fff;border-radius:10px;padding:20px;margin:20px auto;width:80%;box-shadow:0 2px 6px rgba(0,0,0,.1);text-align:center}
+    .photos{display:flex;justify-content:center;flex-wrap:wrap;gap:15px;margin-top:10px}
+    .photos img{width:250px;height:250px;object-fit:cover;border-radius:10px;display:none}
+    button{background:#1e90ff;color:white;border:none;padding:10px 20px;border-radius:5px}
+  </style>
+</head>
+<body>
+  <h1>My Life Journey</h1>
+  <h3>Hello, I'm Rubrobb Ondoy and here are my happy and simple journeys.</h3>
+
+  <div class="section">
+    <h2>Childhood Pictures</h2>
+    <p>So here are my childhood pictures...</p>
+    <button onclick="toggle('childhood')">See Childhood Photos</button>
+    <div class="photos" id="childhood"><img src="assets/images/childhood.jpg"><img src="assets/images/childhood2.jpg"></div>
+  </div>
+
+  <div class="section">
+    <h2>Highschool Experiences</h2>
+    <p>...highschool!</p>
+    <button onclick="toggle('highschool')">See HighSchool Photos</button>
+    <div class="photos" id="highschool"><img src="assets/images/highschool1.jpg"><img src="assets/images/highschool2.jpg"></div>
+  </div>
+
+  <div class="section">
+    <h2>College Journey</h2>
+    <p>...college.</p>
+    <button onclick="toggle('college')">See College Photos</button>
+    <div class="photos" id="college"><img src="assets/images/college1.jpg"><img src="assets/images/college2.jpg"></div>
+  </div>
+
+<script>
+  function toggle(id){
+    document.querySelectorAll('#'+id+' img').forEach(img=>{
+      img.style.display = (img.style.display==='none' || img.style.display==='') ? 'inline-block' : 'none';
+    });
+  }
+</script>
+</body>
+</html>

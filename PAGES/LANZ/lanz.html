@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lanz — Life Journey</title>
+  <style>
+    /* Keep Lanz original styling (slimmed) */
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:transparent;color:#222}
+    .wrap{padding:20px}
+    h1{color:#d35400}
+    img{max-width:100%;border-radius:12px}
+    .nav{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+    .btn{background:#d35400;color:white;padding:8px 14px;border-radius:8px;border:none;cursor:pointer}
+    .btn.secondary{background:#0077b6}
+    .section{display:none}
+    .section.active{display:block}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>My Life — Lanz</h1>
+
+    <div id="baby" class="section active">
+      <h2>Baby Life</h2>
+      <p>When I was a baby, I was full of energy and curiosity. My family said I always smiled and loved to play with toys. I enjoyed learning to walk and discovering the world around me.</p>
+      <img src="assets/images/babypic.jpg" alt="Lanz baby">
+    </div>
+
+    <div id="school" class="section">
+      <h2>School Life</h2>
+      <h3>Elementary Days</h3>
+      <p>During my elementary years, I learned many new things and developed my love for learning. I made new friends and discovered my interests in arts and science.</p>
+      <img src="assets/images/elementary.jpg" alt="elementary">
+      <h3>High School</h3>
+      <p>High school was an unforgettable experience. I learned more about myself, built strong friendships, and faced challenges that helped me grow into a more responsible person.</p>
+      <img src="assets/images/highschool (1).jpg" alt="highschool">
+    </div>
+
+    <div id="college" class="section">
+      <h2>College Life</h2>
+      <p>College life is where I’m learning to balance studies, personal growth, and independence. It’s a time of new experiences, challenges, and preparation for my future career.</p>
+      <img src="assets/images/college.jpg" alt="college">
+    </div>
+
+    <div class="nav">
+      <button class="btn" id="prevL">Back</button>
+      <button class="btn" id="nextL">Next</button>
+    </div>
+  </div>
+
+<script>
+  const sections = ['baby','school','college'];
+  let idx = 0;
+  function show() {
+    sections.forEach((s,i)=> document.getElementById(s).classList.toggle('active', i===idx));
+    document.getElementById('prevL').style.visibility = idx===0 ? 'hidden':'visible';
+    document.getElementById('nextL').textContent = idx===sections.length-1 ? 'Finish' : 'Next';
+  }
+  document.getElementById('prevL').onclick = ()=> { if(idx>0){ idx--; show(); } };
+  document.getElementById('nextL').onclick = ()=> { if(idx<sections.length-1){ idx++; show(); } else { /* finish: go back to main */ } };
+  show();
+</script>
+</body>
+</html>
